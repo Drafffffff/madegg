@@ -1,0 +1,40 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  text-align: center;
+  background-color: #fef7cf;
+}
+
+.App {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.top img {
+  width: 70%;
+  margin-top: 80px;
+}
+
+.mid img:nth-child(1) {
+  width: 50%;
+}
+.mid img:nth-child(2) {
+  width: 70%;
+  margin-top: 20px;
+}
+.mid img:nth-child(3) {
+  width: 50%;
+  margin-top: 20px;
+}
+.btm {
+  background-color: #fff;
+  padding: 30px 0;
+}
+.btm img {
+  width: 20%;
+}
+.btm:active {
+  background-color: #eed2b0;
+}
