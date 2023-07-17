@@ -95,35 +95,14 @@ void loop()
   if (isToggleLed)
   {
 
-    while (1)
+    for (int x = 0; x < 3; x++)
     {
+
       for (int j = 0; j < 200; j++)
       {
         for (int i = 0; i < NUM_LEDS; i++)
         {
           leds[i] = CRGB(j, ceil(j * 0.8), ceil(j * 0.2));
-        }
-        Serial.println(analogRead(33));
-        if (analogRead(33) < 800)
-        {
-          myDFPlayer.play(musicNum);
-          musicNum++;
-          if (musicNum > 3)
-          {
-            musicNum = 1;
-          }
-          isToggleLed = 0;
-
-          
-
-
-
-          for (int i = 0; i < NUM_LEDS; i++)
-          {
-            leds[i] = CRGB::Black;
-          }
-          FastLED.show();
-          return;
         }
         FastLED.show();
         delay(5);
@@ -136,34 +115,47 @@ void loop()
         {
           leds[i] = CRGB(j, ceil(j * 0.8), ceil(j * 0.2));
         }
-        Serial.println(analogRead(33));
-        if (analogRead(33) < 800)
+        FastLED.show();
+        delay(5);
+      }
+    }
+
+    for (int i = 0; i < NUM_LEDS; i++)
+    {
+      leds[i] = CRGB::Black;
+    }
+    FastLED.show();
+    isToggleLed = 0;
+    myDFPlayer.play(musicNum);
+    musicNum++;
+    if (musicNum > 3)
+    {
+      musicNum = 1;
+    }
+    for (int x = 0; x < 5; x++)
+    {
+
+      for (int j = 0; j < 200; j++)
+      {
+        for (int i = 0; i < NUM_LEDS; i++)
         {
-          myDFPlayer.play(musicNum);
-          musicNum++;
-          if (musicNum > 3)
-          {
-            musicNum = 1;
-          }
-          isToggleLed = 0;
-          for (int i = 0; i < NUM_LEDS; i++)
-          {
-            leds[i] = CRGB::Black;
-          }
-          FastLED.show();
-          return;
+          leds[i] = CRGB(j, ceil(j * 0.8), ceil(j * 0.2));
         }
         FastLED.show();
         delay(5);
       }
-      // Now turn the LED off, then pause
+      delay(500);
 
-      for (int i = 0; i < NUM_LEDS; i++)
+      for (int j = 200; j > 0; j--)
       {
-        leds[i] = CRGB::Black;
+        for (int i = 0; i < NUM_LEDS; i++)
+        {
+          leds[i] = CRGB(j, ceil(j * 0.8), ceil(j * 0.2));
+        }
+        FastLED.show();
+        delay(5);
       }
-      FastLED.show();
-      isToggleLed = 0;
-    }
+    } 
+    isToggleLed = 0;
   }
 }
